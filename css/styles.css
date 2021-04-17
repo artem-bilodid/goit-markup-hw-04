@@ -4,6 +4,8 @@
   --title-text-color: #212121;
   --primary-text-color: #757575;
   --header-border-color: #ececec;
+  --primary-icon-color: #AFB1B8;
+  --hero-overlay-background-color: rgba(47, 48, 58, 0.4);
   --portfolio-border-color: #eeeeee;
   --primary-button-text-color: #ffffff;
   --footer-secondary-text-color: rgba(255, 255, 255, 0.6);
@@ -72,7 +74,6 @@ img {
 .title {
   margin: 0;
   padding: 0;
-  font-size: inherit;
   color: var(--title-text-color);
 }
 
@@ -96,6 +97,7 @@ img {
   border-color: var(--accent-color);
   color: var(--primary-button-text-color);
   background-color: var(--accent-color);
+  box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08), 0px 2px 2px rgba(0, 0, 0, 0.12);
 }
 
 .link {
@@ -199,11 +201,21 @@ img {
 .hero {
   padding-top: 200px;
   padding-bottom: 200px;
-  text-align: center;
+  max-width: 1600px;
+  margin-left: auto;
+  margin-right: auto;
+
   background-color: var(--background-dark-color);
+  background-image: linear-gradient(
+    to right,
+    var(--hero-overlay-background-color), var(--hero-overlay-background-color)
+  ), url('../images/hero-overlay.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .hero .container {
+  text-align: center;
   width: 700px;
 }
 
@@ -217,12 +229,13 @@ img {
   color: var(--background-dark-primary-text-color);
 }
 
-.hero-button {
+.button.hero-button {
   font-weight: 700;
   padding: 10px 32px;
   font-size: 16px;
   line-height: 1.87;
   letter-spacing: 0.06em;
+  box-shadow: none;
 }
 
 .qualities.section {
@@ -256,6 +269,7 @@ img {
 .team-list-item {
   flex-basis: calc((100% - 4 * var(--flex-grid-margin)) / 4);
   background-color: var(--background-primary-color);
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
   border-radius: 0px 0px 4px 4px;
 }
 .person-label {
@@ -289,6 +303,11 @@ img {
 
 .project-item {
   flex-basis: calc((100% - 3 * var(--flex-grid-margin)) / 3);
+  cursor: pointer;
+}
+
+.project-item:hover {
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06), 1px 4px 6px rgba(0, 0, 0, 0.16);
 }
 
 .project-name {
@@ -300,6 +319,22 @@ img {
 .project-category {
   font-size: 16px;
   line-height: 1.87;
+}
+
+.clients-list-item {
+  flex-basis: calc((100% - 6 * var(--flex-grid-margin)) / 6);
+}
+
+.clients-list-item .link {
+  height: 92px;
+  display: flex;
+  border: 1px solid var(--primary-icon-color);
+  border-radius: 4px;
+}
+
+.clients-list-item .link:hover,
+.clients-list-item .link:focus {
+  border-color: var(--accent-color);
 }
 
 .footer {
